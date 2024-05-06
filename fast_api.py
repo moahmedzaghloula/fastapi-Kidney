@@ -18,7 +18,7 @@ class Features(BaseModel):
     serum_creatinine: float
     sodium: float
     potassium: float
-    haemoglobin: float
+    hemoglobin: float
     white_blood_cell_count: int
     red_blood_cell_count: float
     hypertension: int
@@ -37,7 +37,7 @@ async def predict(features: Features):
     # Convert features to list
     features_list = [ features.blood_pressure, features.specific_gravity, features.albumin,
                     features.sugar, features.red_blood_cells, features.blood_urea,
-                    features.serum_creatinine, features.sodium, features.potassium, features.haemoglobin,
+                    features.serum_creatinine, features.sodium, features.potassium, features.hemoglobin,
                     features.white_blood_cell_count, features.red_blood_cell_count,
                     features.hypertension]
 
