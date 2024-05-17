@@ -2,11 +2,20 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import uvicorn
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # Load the trained model
 model = joblib.load('kidney.pkl')
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_origins=['*']
+)
+
+
 
 class Features(BaseModel):
     blood_pressure: int
